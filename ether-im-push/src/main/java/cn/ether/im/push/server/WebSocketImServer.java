@@ -75,6 +75,7 @@ public class WebSocketImServer implements ImPushServer {
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 256)
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
+                .childOption(ChannelOption.TCP_NODELAY, true) // 禁用nagle算法,避免小数据被缓存
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     /**
                      * This method will be called once the {@link Channel} was registered. After the method returns this instance
