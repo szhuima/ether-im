@@ -1,6 +1,6 @@
-package cn.ether.im.performance.test.client;
+package cn.ether.im.mock.client;
 
-import cn.ether.im.performance.test.user.MockUser;
+import cn.ether.im.mock.user.MockUser;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;

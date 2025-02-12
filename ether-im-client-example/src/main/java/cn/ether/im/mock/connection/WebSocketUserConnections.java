@@ -1,8 +1,8 @@
-package cn.ether.im.performance.test.connection;
+package cn.ether.im.mock.connection;
 
 import cn.ether.im.common.model.protoc.ImProtoType;
-import cn.ether.im.performance.test.client.WebSocketMockClient;
-import cn.ether.im.performance.test.user.MockUser;
+import cn.ether.im.mock.client.WebSocketMockClient;
+import cn.ether.im.mock.user.MockUser;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 

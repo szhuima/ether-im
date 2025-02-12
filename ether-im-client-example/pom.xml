@@ -52,7 +52,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        cn.ether.im.performance.test.EtherImPerformanceTestApp
+                                        cn.ether.im.mock.ImMockClientApp
                                     </mainClass>
                                 </manifest>
                             </archive>

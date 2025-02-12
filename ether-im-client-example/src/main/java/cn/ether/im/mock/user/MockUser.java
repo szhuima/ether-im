@@ -1,4 +1,4 @@
-package cn.ether.im.performance.test.user;
+package cn.ether.im.mock.user;
 
 import cn.ether.im.common.enums.ImTerminalType;
 import lombok.AllArgsConstructor;

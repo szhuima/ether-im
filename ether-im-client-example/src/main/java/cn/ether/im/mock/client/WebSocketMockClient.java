@@ -1,4 +1,4 @@
-package cn.ether.im.performance.test.client;
+package cn.ether.im.mock.client;
 
 import cn.ether.im.client.common.enums.ImInfoType;
 import cn.ether.im.client.common.model.ImInfo;
@@ -13,7 +13,7 @@ import cn.ether.im.common.model.message.ImSingleMessage;
 import cn.ether.im.common.model.protoc.ImProtoType;
 import cn.ether.im.common.util.JwtUtils;
 import cn.ether.im.common.util.ThreadPoolUtils;
-import cn.ether.im.performance.test.user.MockUser;
+import cn.ether.im.mock.user.MockUser;
 import cn.ether.im.proto.binary.ImBinary;
 import cn.ether.im.proto.text.ImTextProto;
 import com.alibaba.fastjson.JSON;

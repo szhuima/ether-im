@@ -1,4 +1,4 @@
-package cn.ether.im.performance.test.connection;
+package cn.ether.im.mock.connection;
 
 import java.net.URISyntaxException;
 

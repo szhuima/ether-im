@@ -1,6 +1,6 @@
-package cn.ether.im.performance.test;
+package cn.ether.im.mock;
 
-import cn.ether.im.performance.test.connection.WebSocketUserConnections;
+import cn.ether.im.mock.connection.WebSocketUserConnections;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.URISyntaxException;
@@ -14,7 +14,7 @@ import java.util.concurrent.CountDownLatch;
  * * @Github <a href="https://github.com/mardingJobs">Github链接</a>
  **/
 @Slf4j
-public class EtherImPerformanceTestApp {
+public class ImMockClientApp {
 
     public static void main(String[] args) throws URISyntaxException, InterruptedException {
         for (String arg : Arrays.asList(args)) {
