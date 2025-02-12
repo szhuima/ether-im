@@ -1,6 +1,7 @@
 package cn.ether.im.sdk.agent;
 
 import cn.ether.im.common.enums.ImMessageSendResult;
+import cn.ether.im.common.model.message.ImChatMessage;
 import cn.ether.im.common.model.message.ImGroupMessage;
 import cn.ether.im.common.model.message.ImSingleMessage;
 
@@ -14,11 +15,11 @@ import java.util.List;
 public interface ImMessageAgent {
 
     /**
-     * 发送单聊消息
-     * @param singleMessage
+     * 发送对话消息
+     * @param chatMessage
      * @return
      */
-    ImMessageSendResult sendSingleMessage(ImSingleMessage singleMessage);
+    ImMessageSendResult sendChatMessage(ImChatMessage chatMessage);
 
     /**
      * 批量发送单聊消息，接受人是同一个人
@@ -27,15 +28,6 @@ public interface ImMessageAgent {
      * @return
      */
     ImMessageSendResult batchSendSingleMessage(List<ImSingleMessage> singleMessages) throws Exception;
-
-
-    /**
-     * 发送群聊消息
-     *
-     * @param groupMessage
-     * @return
-     */
-    ImMessageSendResult sendGroupMessage(ImGroupMessage groupMessage) throws Exception;
 
 
     /**

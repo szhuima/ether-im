@@ -34,14 +34,14 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+import static cn.ether.im.common.constants.ImConstants.IM_CHAT_MESSAGE_TOPIC;
 import static cn.ether.im.common.constants.ImConstants.IM_MESSAGE_PUSH_CONSUMER_GROUP;
-import static cn.ether.im.common.constants.ImConstants.IM_SINGLE_MESSAGE_TOPIC;
 
 @Slf4j
 @Component
 @ConditionalOnProperty(name = "message.mq.type", havingValue = "rocketmq", matchIfMissing = true)
 @RocketMQMessageListener(consumerGroup = IM_MESSAGE_PUSH_CONSUMER_GROUP,
-        topic = IM_SINGLE_MESSAGE_TOPIC, consumeMode = ConsumeMode.CONCURRENTLY)
+        topic = IM_CHAT_MESSAGE_TOPIC, consumeMode = ConsumeMode.CONCURRENTLY)
 public class ImSingleMessageMQListener
         implements RocketMQListener<String>, RocketMQPushConsumerLifecycleListener {
 
@@ -65,7 +65,7 @@ public class ImSingleMessageMQListener
         try {
             String tag = ImConstants.IM_CHAT_MESSAGE_TAG_PREFIX + serverId;
 
-            consumer.subscribe(IM_SINGLE_MESSAGE_TOPIC, tag);
+            consumer.subscribe(IM_CHAT_MESSAGE_TOPIC, tag);
             int cpuNums = Runtime.getRuntime().availableProcessors();
             consumer.setConsumeThreadMin(cpuNums);
             consumer.setConsumeThreadMax(cpuNums * 2);

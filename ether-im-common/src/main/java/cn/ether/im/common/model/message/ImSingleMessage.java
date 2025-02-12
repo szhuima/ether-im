@@ -14,12 +14,6 @@ public class ImSingleMessage extends ImChatMessage {
 
     private static final long serialVersionUID = 1L;
 
-
-    /**
-     * 接收者Id
-     */
-    private String receiverId;
-
     @Override
     public Long messageId() {
         return this.getMessageId();

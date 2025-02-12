@@ -17,6 +17,7 @@
         <module>ether-im-client-example</module>
         <module>ether-im-proto</module>
         <module>ether-im-client-common</module>
+        <module>ether-im-group</module>
     </modules>
 
     <properties>

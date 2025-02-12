@@ -123,11 +123,11 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/ether-im-message/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/ether-im-message/pom.xml" />
         <option value="$PROJECT_DIR$/ether-im-test/pom.xml" />
         <option value="$PROJECT_DIR$/marding-im-pusher/pom.xml" />
       </set>

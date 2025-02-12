@@ -48,9 +48,9 @@ public class ImConstants {
     public final static String IM_USER_SERVER_ID = "im:user:server_id";
 
     /**
-     * 单聊对话消息Topic
+     * 对话消息Topic
      */
-    public final static String IM_SINGLE_MESSAGE_TOPIC = "im-single-message-topic";
+    public final static String IM_CHAT_MESSAGE_TOPIC = "im-chat-message-topic";
 
     /**
      * 群对话消息Topic
@@ -61,7 +61,7 @@ public class ImConstants {
     /**
      * 单聊事物消息Topic
      */
-    public final static String IM_SINGLE_TX_MESSAGE_TOPIC = "im-single-tx-message-topic";
+    public final static String IM_TX_MESSAGE_TOPIC = "im-tx-message-topic";
 
     /**
      * 群聊事物消息Topic
@@ -71,7 +71,7 @@ public class ImConstants {
     /**
      * 对话消息Topic
      */
-    public final static String IM_CHAT_MESSAGE_TAG_PREFIX = "tag-server-id";
+    public final static String IM_CHAT_MESSAGE_TAG_PREFIX = "tag-server-id-";
 
 
     public final static String IM_MESSAGE_PUSH_CONSUMER_GROUP = "im-push-consumer-group";

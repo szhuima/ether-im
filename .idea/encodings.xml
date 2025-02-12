@@ -11,6 +11,8 @@
     <file url="file://$PROJECT_DIR$/ether-im-gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-group-message/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-group-message/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ether-im-group/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ether-im-group/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-message/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-message/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-proto/src/main/java" charset="UTF-8" />
@@ -19,8 +21,6 @@
     <file url="file://$PROJECT_DIR$/ether-im-push/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-sdk/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-sdk/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ether-im-single-message/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ether-im-single-message/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ether-im-test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/marding-im-pusher/src/main/java" charset="UTF-8" />

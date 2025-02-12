@@ -2,13 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.ether.im.message.mapper.ImSingleMessageETMapper">
+<mapper namespace="cn.ether.im.message.mapper.ImMessageEntityMapper">
 
-    <resultMap id="BaseResultMap" type="cn.ether.im.message.model.entity.ImSingleMessageET">
-        <id property="messageId" column="message_id" jdbcType="BIGINT"/>
+    <resultMap id="BaseResultMap" type="cn.ether.im.message.model.entity.ImMessageEntity">
+        <id property="id" column="id" jdbcType="BIGINT"/>
         <result property="senderId" column="sender_id" jdbcType="VARCHAR"/>
         <result property="senderTerminal" column="sender_terminal" jdbcType="VARCHAR"/>
         <result property="receiverId" column="receiver_id" jdbcType="VARCHAR"/>
+        <result property="receiverType" column="receiver_type" jdbcType="INTEGER"/>
         <result property="content" column="content" jdbcType="VARCHAR"/>
         <result property="contentType" column="content_type" jdbcType="VARCHAR"/>
         <result property="status" column="status" jdbcType="VARCHAR"/>
@@ -17,8 +18,9 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        message_id,sender_id,sender_terminal,
-        receiver_id,content,content_type,
-        status,send_time,create_time
+        id,sender_id,sender_terminal,
+        receiver_id,receiver_type,content,
+        content_type,status,send_time,
+        create_time
     </sql>
 </mapper>

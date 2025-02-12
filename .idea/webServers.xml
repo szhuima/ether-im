@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="97330374-e78f-413a-aa60-a675e1444685" name="ubuntu">
+        <fileTransfer rootFolder="/home/jack/mnt/www/ether-im" accessType="SFTP" host="192.168.1.4" port="22" sshConfigId="3aae0fb7-9efa-47e4-b1c9-eb15d2f5757d" sshConfig="jack@192.168.1.4:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

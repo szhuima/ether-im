@@ -1,6 +1,7 @@
 package cn.ether.im.common.model.message;
 
 import cn.ether.im.common.enums.ImMessageContentType;
+import cn.ether.im.common.enums.ImMessageType;
 import cn.ether.im.common.enums.ImTerminalType;
 import cn.ether.im.common.model.user.ImUserTerminal;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * 存放对话消息的公共字段
+ * 对话消息模型，指代用户之间的对话消息
  * * @Author: Martin(微信：martin-jobs)
  * * @Date    2024/10/5 12:06
  * * @Description
@@ -17,7 +18,7 @@ import java.util.List;
  **/
 @Getter
 @Setter
-public abstract class ImChatMessage implements ImMessageV2 {
+public class ImChatMessage implements ImMessageV2 {
 
 
     /**
@@ -40,14 +41,43 @@ public abstract class ImChatMessage implements ImMessageV2 {
      * 发送者 ID
      */
     private String senderId;
+
     /**
      * 发送者终端类型
      */
     private ImTerminalType senderTerminal;
 
     /**
+     * 接收者Id,可以是用户ID，也可以是群ID
+     */
+    private String receiverId;
+
+    /**
+     * 接受者类型 0-个人 1-群
+     */
+    private Integer receiverType;
+
+    /**
+     * 接受者ID集合，用于群消息
+     */
+    private List<String> groupReceiverIds;
+
+    /**
      * 用于限制接受终端，如果为空，则不用限制。
      */
     private List<ImUserTerminal> limitTerminals;
 
+    @Override
+    public Long messageId() {
+        return messageId;
+    }
+
+    @Override
+    public ImMessageType messageType() {
+        if (1 == receiverType) {
+            return ImMessageType.GROUP;
+        } else {
+            return ImMessageType.SINGLE;
+        }
+    }
 }
