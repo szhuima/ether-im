@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @description 针对表【im_single_message(单聊信息表)】的数据库操作Service
  * @createDate 2024-10-05 19:55:33
  */
-public interface ImSingleMessageService extends IService<ImSingleMessageET> {
+public interface ImMessageService extends IService<ImSingleMessageET> {
 
     /**
      * 将发送请求转为单聊消息模型

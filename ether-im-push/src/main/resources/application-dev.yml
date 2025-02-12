@@ -7,8 +7,8 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-        username: nacos
-        password: nacos
+  #        username: nacos
+  #        password: nacos
   redis:
     database: 0
     host: localhost

@@ -5,7 +5,7 @@ import cn.ether.im.common.event.event.ImEventType;
 import cn.ether.im.common.event.event.impl.ImSingleMessageReceivedEvent;
 import cn.ether.im.common.event.listener.ImEventListener;
 import cn.ether.im.message.single.model.entity.ImSingleMessageET;
-import cn.ether.im.message.single.service.ImSingleMessageService;
+import cn.ether.im.message.single.service.ImMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +24,7 @@ import java.util.List;
 public class MessageReceivedEventListener implements ImEventListener<ImSingleMessageReceivedEvent> {
 
     @Resource
-    private ImSingleMessageService singleMessageService;
+    private ImMessageService singleMessageService;
 
     @Override
     public void onEvent(ImSingleMessageReceivedEvent event) throws Exception {

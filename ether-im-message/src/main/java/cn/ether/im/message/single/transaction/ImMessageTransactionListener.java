@@ -2,7 +2,7 @@ package cn.ether.im.message.single.transaction;
 
 import cn.ether.im.common.model.message.ImSingleMessage;
 import cn.ether.im.message.single.model.entity.ImSingleMessageET;
-import cn.ether.im.message.single.service.ImSingleMessageService;
+import cn.ether.im.message.single.service.ImMessageService;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 public class ImMessageTransactionListener implements RocketMQLocalTransactionListener {
 
     @Resource
-    private ImSingleMessageService singleMessageService;
+    private ImMessageService singleMessageService;
 
     @Override
     public RocketMQLocalTransactionState executeLocalTransaction(Message msg, Object arg) {

@@ -6,12 +6,12 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 单聊消息发送请求对象
+ * 消息发送请求对象
  * * @Author: Martin
  * * @Date    2024/9/15 15:00
  * * @Description
  **/
-@Schema(description = "发送单聊消息请求对象")
+@Schema(description = "发送消息请求对象")
 @Data
 public class MessageSendReq implements Serializable {
 
@@ -25,6 +25,10 @@ public class MessageSendReq implements Serializable {
      */
     @Schema(name = "receiverId", description = "接收者ID", requiredMode = Schema.RequiredMode.REQUIRED, example = "kefu-01")
     private String receiverId;
+
+    @Schema(name = "messageType", description = "消息类型: 0-单聊 1-群聊", example = "0")
+    private Integer messageType;
+
 
     /**
      * 消息内容

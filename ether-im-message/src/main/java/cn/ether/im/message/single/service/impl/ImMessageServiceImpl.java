@@ -12,7 +12,7 @@ import cn.ether.im.message.single.mapper.ImSingleMessageETMapper;
 import cn.ether.im.message.single.model.dto.MessageSendReq;
 import cn.ether.im.message.single.model.entity.ImSingleMessageET;
 import cn.ether.im.message.single.model.session.SessionContext;
-import cn.ether.im.message.single.service.ImSingleMessageService;
+import cn.ether.im.message.single.service.ImMessageService;
 import cn.ether.im.sdk.agent.ImMessageAgent;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -36,8 +36,8 @@ import static cn.ether.im.common.enums.ImChatMessageStatus.*;
  */
 @Slf4j
 @Service
-public class ImSingleMessageServiceImpl extends ServiceImpl<ImSingleMessageETMapper, ImSingleMessageET>
-        implements ImSingleMessageService {
+public class ImMessageServiceImpl extends ServiceImpl<ImSingleMessageETMapper, ImSingleMessageET>
+        implements ImMessageService {
 
     @Resource
     private SnowflakeUtil snowflakeUtil;

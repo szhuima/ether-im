@@ -20,7 +20,7 @@ import cn.ether.im.common.enums.ImChatMessageStatus;
 import cn.ether.im.common.enums.ImMessageSendResult;
 import cn.ether.im.common.model.message.ImSingleMessage;
 import cn.ether.im.message.single.model.entity.ImSingleMessageET;
-import cn.ether.im.message.single.service.ImSingleMessageService;
+import cn.ether.im.message.single.service.ImMessageService;
 import cn.ether.im.sdk.agent.ImMessageAgent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
@@ -43,7 +43,7 @@ public class SingleMessageTransactionConsumer
     private ImMessageAgent messageAgent;
 
     @Resource
-    private ImSingleMessageService singleMessageService;
+    private ImMessageService singleMessageService;
 
     @Override
     public void onMessage(ImSingleMessage message) {

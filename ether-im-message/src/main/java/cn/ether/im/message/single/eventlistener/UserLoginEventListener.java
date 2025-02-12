@@ -3,7 +3,7 @@ package cn.ether.im.message.single.eventlistener;
 import cn.ether.im.common.event.event.ImEventType;
 import cn.ether.im.common.event.event.impl.ImUserLoginEvent;
 import cn.ether.im.common.event.listener.ImEventListener;
-import cn.ether.im.message.single.service.ImSingleMessageService;
+import cn.ether.im.message.single.service.ImMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +22,7 @@ import java.util.List;
 public class UserLoginEventListener implements ImEventListener<ImUserLoginEvent> {
 
     @Resource
-    private ImSingleMessageService singleMessageService;
+    private ImMessageService singleMessageService;
 
     @Override
     public void onEvent(ImUserLoginEvent event) {

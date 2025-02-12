@@ -3,7 +3,7 @@ package cn.ether.im.message.single.controller;
 import cn.ether.im.common.model.message.ImSingleMessage;
 import cn.ether.im.message.single.model.dto.MessageSendReq;
 import cn.ether.im.message.single.model.vo.Resp;
-import cn.ether.im.message.single.service.ImSingleMessageService;
+import cn.ether.im.message.single.service.ImMessageService;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -30,11 +30,11 @@ import javax.annotation.Resource;
 public class MessageController {
 
     @Resource
-    private ImSingleMessageService singleMessageService;
+    private ImMessageService singleMessageService;
 
 
     /**
-     * 发送单聊消息 通过MQ的事物消息实现，有可能会回滚也有可能提交
+     * 发送消息 通过MQ的事物消息实现，有可能会回滚也有可能提交
      *
      * @param req
      * @return
