@@ -9,9 +9,9 @@ import cn.ether.im.common.model.message.ImSingleMessage;
 import cn.ether.im.common.model.user.ImUserTerminal;
 import cn.ether.im.common.mq.ImMessageMQSender;
 import cn.ether.im.common.util.SnowflakeUtil;
-import cn.ether.im.message.mapper.ImSingleMessageETMapper;
+import cn.ether.im.message.mapper.ImMessageEntityMapper;
 import cn.ether.im.message.model.dto.MessageSendReq;
-import cn.ether.im.message.model.entity.ImSingleMessageET;
+import cn.ether.im.message.model.entity.ImMessageEntity;
 import cn.ether.im.message.model.session.SessionContext;
 import cn.ether.im.message.service.ImMessageService;
 import cn.ether.im.sdk.agent.ImMessageAgent;
@@ -36,7 +36,7 @@ import static cn.ether.im.common.enums.ImChatMessageStatus.*;
  */
 @Slf4j
 @Service
-public class ImMessageServiceImpl extends ServiceImpl<ImSingleMessageETMapper, ImSingleMessageET>
+public class ImMessageServiceImpl extends ServiceImpl<ImMessageEntityMapper, ImMessageEntity>
         implements ImMessageService {
 
     @Resource
@@ -50,7 +50,7 @@ public class ImMessageServiceImpl extends ServiceImpl<ImSingleMessageETMapper, I
 
 
     @Override
-    public ImChatMessage convertSendReqToCoreModel(MessageSendReq sendReq) {
+    public ImChatMessage toChatMessage(MessageSendReq sendReq) {
         ImUserTerminal loggedUser = SessionContext.loggedUser();
         Long messageId = snowflakeUtil.nextId();
         ImChatMessage chatMessage = new ImChatMessage();
@@ -60,32 +60,32 @@ public class ImMessageServiceImpl extends ServiceImpl<ImSingleMessageETMapper, I
         chatMessage.setSenderId(loggedUser.getUserId());
         chatMessage.setSenderTerminal(loggedUser.getTerminalType());
         chatMessage.setReceiverId(sendReq.getReceiverId());
-        chatMessage.setReceiverType(sendReq.getReceiverType());
+        chatMessage.setReceiverType(sendReq.getReceiverType() == null ? 0 : sendReq.getReceiverType());
         chatMessage.setSendTime(System.currentTimeMillis());
         return chatMessage;
     }
 
     @Override
-    public ImSingleMessageET convertCoreModelToEntity(ImChatMessage chatMessage) {
-        ImSingleMessageET singleMessageET = new ImSingleMessageET();
-        BeanUtil.copyProperties(chatMessage, singleMessageET);
-        singleMessageET.setStatus(INIT.name());
-        singleMessageET.setCreateTime(new Date());
-        return singleMessageET;
+    public ImMessageEntity convertCoreModelToEntity(ImChatMessage chatMessage) {
+        ImMessageEntity messageEntity = new ImMessageEntity();
+        BeanUtil.copyProperties(chatMessage, messageEntity);
+        messageEntity.setStatus(INIT.name());
+        messageEntity.setCreateTime(new Date());
+        return messageEntity;
     }
 
     @Override
     @Transactional
     public boolean persistCoreModel(ImChatMessage chatMessage) {
-        ImSingleMessageET singleMessageET = convertCoreModelToEntity(chatMessage);
-        this.save(singleMessageET);
+        ImMessageEntity messageEntity = convertCoreModelToEntity(chatMessage);
+        this.save(messageEntity);
         return true;
     }
 
     @Override
-    public ImSingleMessage convertEntityToCoreModel(ImSingleMessageET singleMessageET) {
+    public ImSingleMessage convertEntityToCoreModel(ImMessageEntity messageEntity) {
         ImSingleMessage singleMessage = new ImSingleMessage();
-        BeanUtil.copyProperties(singleMessageET, singleMessage);
+        BeanUtil.copyProperties(messageEntity, singleMessage);
         return singleMessage;
     }
 
@@ -97,8 +97,8 @@ public class ImMessageServiceImpl extends ServiceImpl<ImSingleMessageETMapper, I
 
     @Override
     public void resendUnReceivedMessage(String userId, ImTerminalType terminalType) {
-        List<ImSingleMessageET> list = this.lambdaQuery().eq(ImSingleMessageET::getReceiverId, userId)
-                .in(ImSingleMessageET::getStatus, INIT, RECEIVER_NOT_ONLINE, SENT, SENT_FAIL)
+        List<ImMessageEntity> list = this.lambdaQuery().eq(ImMessageEntity::getReceiverId, userId)
+                .in(ImMessageEntity::getStatus, INIT, RECEIVER_NOT_ONLINE, SENT, SENT_FAIL)
                 .list();
 
         List<ImSingleMessage> singleMessages = list.stream().map(this::convertEntityToCoreModel)

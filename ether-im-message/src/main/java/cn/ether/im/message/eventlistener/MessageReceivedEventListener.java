@@ -4,7 +4,7 @@ import cn.ether.im.common.enums.ImChatMessageStatus;
 import cn.ether.im.common.event.event.ImEventType;
 import cn.ether.im.common.event.event.impl.ImSingleMessageReceivedEvent;
 import cn.ether.im.common.event.listener.ImEventListener;
-import cn.ether.im.message.model.entity.ImSingleMessageET;
+import cn.ether.im.message.model.entity.ImMessageEntity;
 import cn.ether.im.message.service.ImMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -24,16 +24,16 @@ import java.util.List;
 public class MessageReceivedEventListener implements ImEventListener<ImSingleMessageReceivedEvent> {
 
     @Resource
-    private ImMessageService singleMessageService;
+    private ImMessageService messageService;
 
     @Override
     public void onEvent(ImSingleMessageReceivedEvent event) throws Exception {
         log.info("监听【消息已接收事件】|{}", event);
         // 更新状态为已接收
-        singleMessageService.lambdaUpdate()
-                .eq(ImSingleMessageET::getMessageId, event.getMessageId())
-                .eq(ImSingleMessageET::getReceiverId, event.getReceiverId())
-                .set(ImSingleMessageET::getStatus, ImChatMessageStatus.RECEIVED.name())
+        messageService.lambdaUpdate()
+                .eq(ImMessageEntity::getId, event.getMessageId())
+                .eq(ImMessageEntity::getReceiverId, event.getReceiverId())
+                .set(ImMessageEntity::getStatus, ImChatMessageStatus.RECEIVED.name())
                 .update();
 
     }

@@ -75,7 +75,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>cn.ether.im.message.ImSingleMessageApplication</mainClass>
+                    <mainClass>cn.ether.im.message.ImMessageApplication</mainClass>
                     <outputDirectory>${session.executionRootDirectory}/target/</outputDirectory>
                 </configuration>
                 <executions>

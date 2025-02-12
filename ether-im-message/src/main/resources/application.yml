@@ -2,13 +2,13 @@ spring:
   sleuth:
     enabled: true
   application:
-    name: ether-im-message-single
+    name: im-message
   profiles:
     active: dev
 
 server:
   servlet:
-    context-path: /im-message-single
+    context-path: /im-message
 
 management:
   endpoints:

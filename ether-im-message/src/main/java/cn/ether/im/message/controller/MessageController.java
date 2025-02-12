@@ -42,7 +42,7 @@ public class MessageController {
     @Operation(summary = "发送消息", description = "")
     @PostMapping("/send")
     public Resp send(@RequestBody MessageSendReq req) throws Exception {
-        ImChatMessage chatMessage = messageService.convertSendReqToCoreModel(req);
+        ImChatMessage chatMessage = messageService.toChatMessage(req);
         messageService.sendMessage(chatMessage);
         return Resp.success();
     }

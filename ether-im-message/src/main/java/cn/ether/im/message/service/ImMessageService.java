@@ -4,14 +4,14 @@ import cn.ether.im.common.enums.ImTerminalType;
 import cn.ether.im.common.model.message.ImChatMessage;
 import cn.ether.im.common.model.message.ImSingleMessage;
 import cn.ether.im.message.model.dto.MessageSendReq;
-import cn.ether.im.message.model.entity.ImSingleMessageET;
+import cn.ether.im.message.model.entity.ImMessageEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * @author jack
  * @createDate 2024-10-05 19:55:33
  */
-public interface ImMessageService extends IService<ImSingleMessageET> {
+public interface ImMessageService extends IService<ImMessageEntity> {
 
     /**
      * 将发送请求转为消息模型
@@ -19,7 +19,7 @@ public interface ImMessageService extends IService<ImSingleMessageET> {
      * @param sendReq
      * @return
      */
-    ImChatMessage convertSendReqToCoreModel(MessageSendReq sendReq);
+    ImChatMessage toChatMessage(MessageSendReq sendReq);
 
     /**
      * 将单聊消息模型转为实体
@@ -27,7 +27,7 @@ public interface ImMessageService extends IService<ImSingleMessageET> {
      * @param chatMessage
      * @return
      */
-    ImSingleMessageET convertCoreModelToEntity(ImChatMessage chatMessage);
+    ImMessageEntity convertCoreModelToEntity(ImChatMessage chatMessage);
 
     /**
      * 持久化模型
@@ -43,7 +43,7 @@ public interface ImMessageService extends IService<ImSingleMessageET> {
      * @param singleMessageET
      * @return
      */
-    ImSingleMessage convertEntityToCoreModel(ImSingleMessageET singleMessageET);
+    ImSingleMessage convertEntityToCoreModel(ImMessageEntity singleMessageET);
 
     /**
      * 发送消息

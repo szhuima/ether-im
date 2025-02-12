@@ -1,7 +1,7 @@
 package cn.ether.im.message.transaction;
 
 import cn.ether.im.common.model.message.ImChatMessage;
-import cn.ether.im.message.model.entity.ImSingleMessageET;
+import cn.ether.im.message.model.entity.ImMessageEntity;
 import cn.ether.im.message.service.ImMessageService;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
@@ -43,8 +43,8 @@ public class ImMessageTransactionListener implements RocketMQLocalTransactionLis
     @Override
     public RocketMQLocalTransactionState checkLocalTransaction(Message msg) {
         String messageId = (String) msg.getHeaders().get("rocketmq_KEYS");
-        ImSingleMessageET singleMessageEt = messageService.getById(messageId);
-        if (singleMessageEt != null) {
+        ImMessageEntity messageEntity = messageService.getById(messageId);
+        if (messageEntity != null) {
             return RocketMQLocalTransactionState.COMMIT;
         }
         return RocketMQLocalTransactionState.ROLLBACK;

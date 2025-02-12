@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ether-im-gateway
+    name: im-gateway
   cloud:
     gateway:
       discovery:
@@ -12,14 +12,14 @@ spring:
           uri: ws://ether-im-ws
           predicates:
             - Path=/im/**
-        - id: im-message-single
-          uri: lb://ether-im-message-single
+        - id: im-message
+          uri: lb://im-message
           predicates:
-            - Path=/im-message-single/**
-        - id: im-message-group
-          uri: lb://ether-im-message-group
+            - Path=/im-message/**
+        - id: im-group
+          uri: lb://im-group
           predicates:
-            - Path=/im-message-group/**
+            - Path=/im-group/**
   profiles:
     active: dev
 server:

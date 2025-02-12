@@ -47,6 +47,8 @@ public class HandshakeCompleteChannelHandler extends SimpleChannelInboundHandler
 
             if (!pass) {
                 ctx.writeAndFlush(new ImInfo("Token校验失败"));
+                ctx.channel().close();
+                return;
             }
             String protocType = headers.get("protoc_type");
 

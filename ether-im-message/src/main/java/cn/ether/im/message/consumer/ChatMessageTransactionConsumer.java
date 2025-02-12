@@ -19,7 +19,7 @@ import cn.ether.im.common.constants.ImConstants;
 import cn.ether.im.common.enums.ImChatMessageStatus;
 import cn.ether.im.common.enums.ImMessageSendResult;
 import cn.ether.im.common.model.message.ImChatMessage;
-import cn.ether.im.message.model.entity.ImSingleMessageET;
+import cn.ether.im.message.model.entity.ImMessageEntity;
 import cn.ether.im.message.service.ImMessageService;
 import cn.ether.im.sdk.agent.ImMessageAgent;
 import lombok.extern.slf4j.Slf4j;
@@ -50,9 +50,9 @@ public class ChatMessageTransactionConsumer
         log.info("监听到【对话消息-事物消息】|{}", message);
         ImMessageSendResult imMessageSendResult = messageAgent.sendChatMessage(message);
         log.info("消息发送结果：{}", imMessageSendResult);
-        messageService.lambdaUpdate().eq(ImSingleMessageET::getMessageId, message.getMessageId())
-                .eq(ImSingleMessageET::getStatus, ImChatMessageStatus.INIT.name())
-                .set(ImSingleMessageET::getStatus, imMessageSendResult)
+        messageService.lambdaUpdate().eq(ImMessageEntity::getId, message.getMessageId())
+                .eq(ImMessageEntity::getStatus, ImChatMessageStatus.INIT.name())
+                .set(ImMessageEntity::getStatus, imMessageSendResult)
                 .update();
 
         // 给自己所有终端发送消息

@@ -55,6 +55,12 @@
         <!--            <groupId>org.springframework.cloud</groupId>-->
         <!--            <artifactId>spring-cloud-starter-zipkin</artifactId>-->
         <!--        </dependency>-->
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-resolver-dns-native-macos</artifactId>
+            <version>4.1.78.Final</version> <!-- 可以根据实际情况调整版本 -->
+        </dependency>
     </dependencies>
 
 
